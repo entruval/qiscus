@@ -11,7 +11,7 @@ module Qiscus
           "#{self.end_point}/#{method}",
           headers: self.headers,
           body: data
-        )
+        ).parsed_response.transform_keys(&:to_sym)
       end
     end
 
@@ -21,7 +21,7 @@ module Qiscus
           "#{self.end_point}/#{method}",
           headers: self.headers,
           query: query
-        )
+        ).parsed_response.transform_keys(&:to_sym)
       end
     end
 
