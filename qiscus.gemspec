@@ -14,4 +14,6 @@ Gem::Specification.new do |spec|
   spec.summary = %q{Wrapper for Qiscus API}
   spec.description   = %q{Wrapper for the Qiscus API}
   spec.license       = "MIT"
+
+  spec.add_runtime_dependency 'httparty'
 end
