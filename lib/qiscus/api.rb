@@ -1,4 +1,5 @@
 require 'httparty'
+require 'json'
 require 'qiscus/client'
 
 module Qiscus
