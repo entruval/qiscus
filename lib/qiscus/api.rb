@@ -42,12 +42,13 @@ module Qiscus
       def self.headers
         {
           "QISCUS_SDK_SECRET": "#{Qiscus.sdk_secret || '2820ae9dfc5362f7f3a10381fb89afc7'}",
+          "QISCUS-SDK-APP-ID": "#{Qiscus.sdk_app_id || 'sdksample'}",
           "Content-Type": "application/json"
         }
       end
 
       def self.end_point
-        "https://#{Qiscus.end_point || 'sdksample.qiscus.com'}/api/#{Qiscus.api_version || 'v2.1'}/rest"
+        "https://#{Qiscus.end_point || 'api.qiscus.com'}/api/#{Qiscus.api_version || 'v2.1'}/rest"
       end
   end
 end
