@@ -10,7 +10,7 @@ module Qiscus
         self.post(
           "#{self.end_point}/#{method}",
           headers: self.headers,
-          body: data
+          body: data.to_json
         ).as_json.transform_keys(&:to_sym)
       end
     end
