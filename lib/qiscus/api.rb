@@ -7,21 +7,23 @@ module Qiscus
 
     Qiscus::Client::POST_METHODS.each do |method|
       define_singleton_method(method) do |data|
-        self.post(
+        res = self.post(
           "#{self.end_point}/#{method}",
           headers: self.headers,
           body: data.to_json
-        ).as_json.transform_keys(&:to_sym)
+        ).to_json
+        JSON.parse(res, symbolize_names: true)
       end
     end
 
     Qiscus::Client::GET_METHODS.each do |method|
       define_singleton_method(method) do |query|
-        self.get(
+        res = self.get(
           "#{self.end_point}/#{method}",
           headers: self.headers,
           query: query
-        ).as_json.transform_keys(&:to_sym)
+        ).to_json
+        JSON.parse(res, symbolize_names: true)
       end
     end
 
