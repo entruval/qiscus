@@ -18,6 +18,7 @@ Qiscus.config do |c|
   c.end_point = Rails.application.secrets.qiscus_end_point
   c.api_version = Rails.application.secrets.qiscus_api_version
   c.sdk_secret = Rails.application.secrets.qiscus_sdk_secret
+  c.sdk_app_id = Rails.application.secrets.qiscus_sdk_app_id
 end
 ```
 
