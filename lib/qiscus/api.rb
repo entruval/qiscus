@@ -28,16 +28,6 @@ module Qiscus
       end
     end
 
-    def self.dummy
-      # For testing purpose
-      query = { room_id: 1375619, page: 1, limit: 10 }
-      puts self.get(
-        "#{self.end_point}/get_room_participants",
-        headers: self.headers,
-        query: query
-      )
-    end
-
     private
       def self.headers
         {

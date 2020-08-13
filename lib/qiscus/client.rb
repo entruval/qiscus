@@ -21,11 +21,11 @@ module Qiscus
 
       "get_room_participants",
 
-      "load_comments",  # Get list of comments in room
+      "load_comments",
 
       "user_profile",
-      "get_user_rooms",  # Get List Rooms of User
-      "get_user_list",  # Get All Users
+      "get_user_rooms",
+      "get_user_list",
     ]
   end
 end
