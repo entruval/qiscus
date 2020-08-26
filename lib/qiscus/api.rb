@@ -11,7 +11,7 @@ module Qiscus
         res = self.post(
           "#{self.end_point}/#{method}",
           headers: self.headers,
-          body: data.to_json
+          body: self.clean_up(data).to_json
         ).to_json
         JSON.parse(res, symbolize_names: true)
       end
@@ -22,7 +22,7 @@ module Qiscus
         res = self.get(
           "#{self.end_point}/#{method}",
           headers: self.headers,
-          query: query
+          query: self.clean_up(query)
         ).to_json
         JSON.parse(res, symbolize_names: true)
       end
@@ -39,6 +39,19 @@ module Qiscus
 
       def self.end_point
         "https://#{Qiscus.end_point || 'api.qiscus.com'}/api/#{Qiscus.api_version || 'v2.1'}/rest"
+      end
+
+      def self.clean_up(params)
+        user_id = params[:user_id]
+        room_id = params[:room_id]
+        new_params = params.dup
+        if !(user_id.nil?) && user_id.is_a?(Numeric)
+          new_params = new_params.merge(user_id: user_id.to_s)
+        end
+        if !(user_id.nil?) && room_id.is_a?(Numeric)
+          new_params = new_params.merge(room_id: room_id.to_s)
+        end
+        new_params
       end
   end
 end
