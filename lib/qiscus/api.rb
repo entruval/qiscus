@@ -48,7 +48,7 @@ module Qiscus
         if !(user_id.nil?) && user_id.is_a?(Numeric)
           new_params = new_params.merge(user_id: user_id.to_s)
         end
-        if !(user_id.nil?) && room_id.is_a?(Numeric)
+        if !(room_id.nil?) && room_id.is_a?(Numeric)
           new_params = new_params.merge(room_id: room_id.to_s)
         end
         new_params
