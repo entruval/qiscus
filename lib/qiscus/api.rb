@@ -28,6 +28,17 @@ module Qiscus
       end
     end
 
+    Qiscus::Client::DELETE_METHODS.each do |method|
+      define_singleton_method(method) do |data|
+        res = self.delete(
+          "#{self.end_point}/#{method}",
+          headers: self.headers,
+          body: self.clean_up(data).to_json
+        ).to_json
+        JSON.parse(res, symbolize_names: true)
+      end
+    end
+
     private
       def self.headers
         {
