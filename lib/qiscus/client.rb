@@ -27,5 +27,9 @@ module Qiscus
       "get_user_rooms",
       "get_user_list",
     ]
+
+    DELETE_METHODS = [
+      "delete_messages"
+    ]
   end
 end
